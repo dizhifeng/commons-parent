@@ -7,7 +7,7 @@
   <groupId>io.github.dizhifeng</groupId>
   <artifactId>commons-parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.0</version>
+  <version>1.0.0</version>
   <name>spring boot starter component</name>
   <description>a springboot starter component for new projects,It contains some useful component,like annotated excel reader/writter and qiniu cdn utils</description>
   <url>https://github.com/dizhifeng/commons-parent</url>
@@ -159,6 +159,17 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.7</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -166,12 +177,12 @@
     <snapshotRepository>
       <id>ossrh</id>
       <name>OSS Snapshots Repository</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
       <name>OSS Staging Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
 </project>
